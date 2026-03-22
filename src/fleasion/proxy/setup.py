@@ -77,7 +77,11 @@ def install_cert() -> bool:
             for entry in os.scandir(base):
                 if not entry.is_dir():
                     continue
-                if glob.glob(os.path.join(entry.path, "*PlayerBeta.exe")):
+                is_roblox = (
+                    glob.glob(os.path.join(entry.path, "*PlayerBeta.exe")) or
+                    glob.glob(os.path.join(entry.path, "*StudioBeta.exe"))
+                )
+                if is_roblox:
                     cacert_path = os.path.join(entry.path, "ssl", "cacert.pem")
                     if not os.path.isfile(cacert_path):
                         continue
@@ -105,7 +109,11 @@ def remove_cert():
                 for entry in os.scandir(base):
                     if not entry.is_dir():
                         continue
-                    if glob.glob(os.path.join(entry.path, "*PlayerBeta.exe")):
+                    is_roblox = (
+                        glob.glob(os.path.join(entry.path, "*PlayerBeta.exe")) or
+                        glob.glob(os.path.join(entry.path, "*StudioBeta.exe"))
+                    )
+                    if is_roblox:
                         cacert_path = os.path.join(
                             entry.path, "ssl", "cacert.pem")
                         if not os.path.isfile(cacert_path):
