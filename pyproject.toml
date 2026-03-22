@@ -1,0 +1,36 @@
+[project]
+name = "Fleasion"
+version = "0.1.0"
+description = "A Windows desktop application built with PySide6"
+readme = "README.md"
+license = { file = "LICENSE.txt" }
+requires-python = ">=3.13"
+dependencies = [
+    "pyside6>=6.7",
+    "cryptography>=42.0",
+    "pygame-ce>=2.4",
+    "pillow>=10.0",
+    "requests>=2.31",
+    "mutagen>=1.47",
+    "python-dateutil>=2.9",
+    "vtk>=9.3",
+    "pywin32>=306",
+    "pyvista>=0.44",
+    "pyvistaqt>=0.11",
+    "lz4>=4.0",
+    "zstandard>=0.22",
+    "dracopy>=2.0.0",
+    "pyopengl>=3.1.10",
+]
+
+[project.scripts]
+fleasion = "fleasion:main"
+
+[project.optional-dependencies]
+build = [
+    "pyinstaller>=6.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.10.12,<0.11.0"]
+build-backend = "uv_build"
