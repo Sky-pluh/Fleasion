@@ -24,7 +24,6 @@ env/
 
 # uv
 .uv/
-uv.lock
 
 # PyInstaller
 *.spec.bak
